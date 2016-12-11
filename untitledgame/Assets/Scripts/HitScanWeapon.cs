@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class HitScanWeapon : MonoBehaviour {
     public float currentClip = 15;
     public float allAmmo;
     public float damage;
+	public GameObject muzzleFlash;
+	public GameObject gunTip;
+	[Header("Gun Sounds:")]
+	//Gun sounds
+	public AudioSource gunSoundSource;
+	public AudioClip gunSound;
 	// Use this for initialization
 	void Start () {
 	
@@ -23,7 +30,11 @@ public class HitScanWeapon : MonoBehaviour {
     void Shoot()
     {
         currentClip--;
-        RaycastHit hit;
+		Instantiate (muzzleFlash, new Vector3 (gunTip.transform.position.x, gunTip.transform.position.y, gunTip.transform.position.z), gunTip.transform.rotation);
+		gunSoundSource.pitch = Random.Range (0.8f,1.1f);
+		gunSoundSource.PlayOneShot(gunSound);
+
+		RaycastHit hit;
 
         //get the forward vector
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
