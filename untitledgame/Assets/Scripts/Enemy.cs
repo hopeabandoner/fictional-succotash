@@ -20,8 +20,9 @@ public class Enemy : MonoBehaviour {
 
 
     //take damage
-    void ApplyDamage(float thedamage)
+    public void ApplyDamage(float thedamage)
     {
+        print("took damage");
         health -= thedamage;
     }
 }

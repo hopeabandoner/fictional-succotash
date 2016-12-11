@@ -16,27 +16,32 @@ public class HitScanWeapon : MonoBehaviour {
         //Fire weapon
         if(Input.GetButtonDown("Fire1"))
         {
-            currentClip--;
-            RaycastHit hit;
-
-            //get the forward vector
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-            //draw the raycast
-            if (Physics.Raycast(transform.position, fwd, out hit))
-            {
-                print("Hit something!");
-
-                //check if the raycast hit an enemy
-                if (hit.transform.tag == "Enemy")
-                {
-                    print("hit an enemy");
-                    //apply damage
-                    hit.transform.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
-                }
-            }
+            Shoot();
         }
 	}
+
+    void Shoot()
+    {
+        currentClip--;
+        RaycastHit hit;
+
+        //get the forward vector
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        //draw the raycast
+        if (Physics.Raycast(transform.position, fwd, out hit))
+        {
+            print("Hit something!");
+
+            //check if the raycast hit an enemy
+            if (hit.transform.tag == "Enemy")
+            {
+                print("hit an enemy");
+                //apply damage
+                hit.transform.gameObject.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
+            }
+        }
+    }
 
     void OnGUI()
     {
