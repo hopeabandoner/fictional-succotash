@@ -34,11 +34,12 @@ public class HitScanWeapon : MonoBehaviour {
             print("Hit something!");
 
             //check if the raycast hit an enemy
-            if (hit.transform.tag == "Enemy")
+            if (hit.collider.tag == "Enemy")
             {
+                hit.collider.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
+
                 print("hit an enemy");
                 //apply damage
-                hit.transform.gameObject.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
             }
         }
     }
