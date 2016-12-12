@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Effects\MissleEffect\particlerotate.cs" />
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_AutoRotate.cs" />
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
     <Compile Include="Assets\Scripts\AmmoPickup.cs" />
@@ -70,8 +71,10 @@
     <Compile Include="Assets\Scripts\Effects\WeaponSway.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\HitScanWeapon.cs" />
+    <Compile Include="Assets\Scripts\MissleShooter.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerVitals.cs" />
+    <Compile Include="Assets\Scripts\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
