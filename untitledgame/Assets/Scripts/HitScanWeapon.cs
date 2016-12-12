@@ -17,16 +17,18 @@ public class HitScanWeapon : MonoBehaviour {
 	public AudioClip endReloadSound;
 
 	[Header("Ammo and Reload:")]
-	public int currentClip = 15; //Amount of ammo in the gun right now
-	public int maxAmmo = 15; //Max amount of ammo in the gun right now
-	public int ammoLeft = 30; //Amount of left over ammo
+	public float currentClip = 15; //Amount of ammo in the gun right now
+	public float maxAmmo = 15; //Max amount of ammo in the gun right now
+	public float ammoLeft = 30; //Amount of left over ammo
 	public float reloadTime = 180.0f; //Time (in frames) needed to reload
 	public float currentReload = 1000.0f; //Current frame of reload time
 	public bool reloading = false;
+
+    public static HitScanWeapon wp;
 	// Use this for initialization
 	void Start () {
 
-
+        wp = this;
 
     }
 	
@@ -51,7 +53,7 @@ public class HitScanWeapon : MonoBehaviour {
 		if (currentReload >= reloadTime && currentClip < maxAmmo && reloading == true) 
 		{
 			reloading = false;
-			int neededAmmo = maxAmmo-currentClip;
+			float neededAmmo = maxAmmo-currentClip;
 			if (ammoLeft < neededAmmo) 
 			{
 				neededAmmo = ammoLeft;

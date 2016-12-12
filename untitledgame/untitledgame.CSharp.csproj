@@ -67,6 +67,7 @@
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
     <Compile Include="Assets\Scripts\AmmoPickup.cs" />
     <Compile Include="Assets\Scripts\Effects\MuzzleFlashScript.cs" />
+    <Compile Include="Assets\Scripts\Effects\WeaponSway.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\HitScanWeapon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

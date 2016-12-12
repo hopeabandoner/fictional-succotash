@@ -4,9 +4,12 @@ using System.Collections;
 public class AmmoPickup : MonoBehaviour {
     public float strength = 15;
     public float rotationSpeed = 10;
-	// Use this for initialization
-	void Start () {
-	
+    public AudioSource soundSource;
+    public AudioClip pickupsound;
+    // Use this for initialization
+    void Start () {
+
+        soundSource = this.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -16,4 +19,11 @@ public class AmmoPickup : MonoBehaviour {
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
 
 	}
+
+    void OnTriggerEnter()
+    {
+        HitScanWeapon.wp.ammoLeft += strength;
+        soundSource.PlayOneShot(pickupsound);
+        Destroy(this.gameObject);
+    }
 }
