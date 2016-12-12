@@ -613,7 +613,8 @@ MonoBehaviour:
   minDamage: 15
   maxDamage: 22
   canShoot: 1
-  fireRate: 10
+  fireRate: 5.5
+  fullAuto: 1
   muzzleFlash: {fileID: 1000012738098260, guid: 827b3394582645741b95b1e1f6645572,
     type: 2}
   gunTip: {fileID: 1076683895}
@@ -1823,11 +1824,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   target: {fileID: 1762744167}
-  aggroDistance: 10
-  attackdistance: 1
+  aggroDistance: 20
+  attackdistance: 4
   attackSpeed: 1.5
   attackDamage: 15
   curDistance: 0
+  attackspeed: 5
   nva: {fileID: 0}
 --- !u!195 &751411587
 NavMeshAgent:
@@ -2152,7 +2154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &921573128
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2186,11 +2188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   target: {fileID: 1762744167}
-  aggroDistance: 10
-  attackdistance: 1
+  aggroDistance: 20
+  attackdistance: 4
   attackSpeed: 1.5
   attackDamage: 15
   curDistance: 0
+  attackspeed: 0
   nva: {fileID: 0}
 --- !u!23 &921573130
 MeshRenderer:

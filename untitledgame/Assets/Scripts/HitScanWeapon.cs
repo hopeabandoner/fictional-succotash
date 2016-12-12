@@ -7,7 +7,8 @@ public class HitScanWeapon : MonoBehaviour {
     public float minDamage;
     public float maxDamage;
     public bool canShoot = true;
-    public float fireRate = 10;
+	public float fireRate = 10;
+	public bool fullAuto = false;
     float lastFire;
     [Header("Effects")]
 	public GameObject muzzleFlash;
@@ -43,10 +44,14 @@ public class HitScanWeapon : MonoBehaviour {
 
         canShoot = !(lastFire > 0);
         //Fire weapon
-		if(Input.GetButtonDown("Fire1") && !reloading && currentClip>0 && canShoot)
+		if(Input.GetButtonDown("Fire1") && !reloading && currentClip>0 && canShoot && !fullAuto)
         {
             Shoot();
-        } 
+        }
+		if(Input.GetButton("Fire1") && !reloading && currentClip>0 && canShoot && fullAuto)
+		{
+			Shoot();
+		} 
 			
 
 		if ((currentClip <= 0 || Input.GetKeyDown(KeyCode.R)) && ammoLeft>0 && reloading == false)
@@ -98,7 +103,6 @@ public class HitScanWeapon : MonoBehaviour {
             {
                 hit.collider.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
 
-                print("hit an enemy");
                 //apply damage
             }
         }

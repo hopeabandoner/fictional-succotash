@@ -11,11 +11,13 @@ public class Enemy : MonoBehaviour {
     public float attackSpeed = 1.5f;
     public float attackDamage = 15;
     public float curDistance;
+    float lastattack;
+    bool canAttack = false;
+    public float attackspeed;
+
     public NavMeshAgent nva;
     // Use this for initialization
     void Start () {
-
-        
 
         nva = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
@@ -24,8 +26,11 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (lastattack > 0)
+        { lastattack--; }
 
-       curDistance = Vector3.Distance(target.transform.position, transform.position);
+        curDistance = Vector3.Distance(target.transform.position, transform.position);
+        canAttack = !(lastattack > 0);
 
         //kill the enemy when their health is 0
         if (health <= 0)
@@ -37,7 +42,13 @@ public class Enemy : MonoBehaviour {
         {
             AIMove();
         }
-	}
+
+        if (curDistance <= attackdistance)
+        {
+            canAttack = true;
+            AIAttack();
+        }
+    }
 
 
     //take damage
@@ -49,10 +60,14 @@ public class Enemy : MonoBehaviour {
     void AIMove()
     {
         nva.destination = target.transform.position;
+        
+    }
 
-        if (curDistance >= attackdistance)
-        {
-           // AIAttack();
-        }
+
+    void AIAttack()
+    {
+        lastattack = attackSpeed;
+        print("attacked");
+        target.gameObject.SendMessage("ApplyDamage", attackDamage, SendMessageOptions.DontRequireReceiver);
     }
 }
