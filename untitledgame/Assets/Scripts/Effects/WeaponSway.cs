@@ -19,11 +19,11 @@ public class WeaponSway : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        MoveOnX = Input.GetAxis("Mouse X") * Time.deltaTime * moveAmt;
-        MoveOnY = Input.GetAxis("Mouse Y") * Time.deltaTime * moveAmt;
+		MoveOnX = Input.GetAxis("Mouse X") * Time.deltaTime * moveAmt;
+		MoveOnY = Input.GetAxis("Mouse Y") * Time.deltaTime * moveAmt;
 
         NewPos = new Vector3(DefaultPos.x + MoveOnX, DefaultPos.y + MoveOnY, DefaultPos.z);
 
-        gun.transform.localPosition = Vector3.Lerp(gun.transform.localPosition, NewPos, moveSpd * Time.deltaTime);
+		gun.transform.localPosition = Vector3.Lerp(gun.transform.localPosition, NewPos, moveSpd * Time.deltaTime);
     }
 }
