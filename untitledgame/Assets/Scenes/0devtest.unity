@@ -613,7 +613,8 @@ MonoBehaviour:
   minDamage: 15
   maxDamage: 22
   canShoot: 1
-  fireRate: 10
+  fireRate: 5
+  fullAuto: 0
   muzzleFlash: {fileID: 1000012738098260, guid: 827b3394582645741b95b1e1f6645572,
     type: 2}
   gunTip: {fileID: 1076683895}
