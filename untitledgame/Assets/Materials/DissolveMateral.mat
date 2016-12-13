@@ -111,7 +111,7 @@ Material:
       second: 0.02
     - first:
         name: _SliceAmount
-      second: 0.48
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0

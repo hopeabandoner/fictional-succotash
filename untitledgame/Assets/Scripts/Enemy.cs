@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
     public float attackspeed;
 
     public NavMeshAgent nva;
+
+	public GameObject dustParticles;
     // Use this for initialization
     void Start () {
 
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour {
         //kill the enemy when their health is 0
         if (health <= 0)
         {
+			Instantiate (dustParticles, new Vector3 (transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this.gameObject);
         }
 
