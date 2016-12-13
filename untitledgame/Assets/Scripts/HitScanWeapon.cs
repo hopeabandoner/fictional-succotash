@@ -24,8 +24,8 @@ public class HitScanWeapon : MonoBehaviour {
 	public float currentClip = 15; //Amount of ammo in the gun right now
 	public float maxAmmo = 15; //Max amount of ammo in the gun right now
 	public float ammoLeft = 30; //Amount of left over ammo
-	public float reloadTime = 180.0f; //Time (in frames) needed to reload
-	public float currentReload = 1000.0f; //Current frame of reload time
+	public float reloadTime = 3.0f; //Time (in seconds) needed to reload
+	public float currentReload = 3.0f; //Current second of reload time
 	public bool reloading = false;
 
     public static HitScanWeapon wp;
@@ -40,7 +40,7 @@ public class HitScanWeapon : MonoBehaviour {
 	void Update () {
 	
         if(lastFire>0)
-        { lastFire--; }
+		{ lastFire -= Time.deltaTime; }
 
         canShoot = !(lastFire > 0);
         //Fire weapon
@@ -59,7 +59,7 @@ public class HitScanWeapon : MonoBehaviour {
 			ReloadGun ();}
 
 		if (reloading == true) {
-			currentReload++;
+			currentReload+=Time.deltaTime;
 		}
 
 		if (currentReload >= reloadTime && currentClip < maxAmmo && reloading == true) 

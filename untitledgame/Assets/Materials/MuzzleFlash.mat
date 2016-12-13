@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MuzzleFlash
-  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 592bd2f840f737f4dbf9090d7e840a73, type: 3}
   m_ShaderKeywords: MATCAP_ACCURATE _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -40,6 +40,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _DissolveTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 422c0778b2f216e40b613f5b46d8ea03, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _EmissionMap
       second:
         m_Texture: {fileID: 0}
@@ -54,13 +60,13 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 9db6cd28fff160847b0d71e5b77c9468, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6f6133843b69cb14cbe04ccc6ea4f66b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MatCap
       second:
-        m_Texture: {fileID: 2800000, guid: daa6a0ce484bc1147ba58a37cd90b5da, type: 3}
+        m_Texture: {fileID: 2800000, guid: 289d04b844d7b7b49a8d707c7566c1b7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -87,6 +93,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: ab88e3944bda7094199f12edf1e431f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SliceGuide
+      second:
+        m_Texture: {fileID: 2800000, guid: da2d386c10246164186f92030454542e, type: 3}
+        m_Scale: {x: 0.25, y: 0.25}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ToonShade
+      second:
+        m_Texture: {fileID: 8900000, guid: b995d4bd9d11078d11005b9844295342, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _BumpScale
@@ -101,6 +119,9 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _EdgeWidth
+      second: 0.043
+    - first:
         name: _EmissionLM
       second: 21.57
     - first:
@@ -114,7 +135,7 @@ Material:
       second: 1
     - first:
         name: _InvFade
-      second: 1
+      second: 0.01
     - first:
         name: _MatCapAccurate
       second: 1
@@ -128,8 +149,14 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
+        name: _Outline
+      second: 0.0136
+    - first:
         name: _Parallax
       second: 0.02
+    - first:
+        name: _SliceAmount
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -148,10 +175,16 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 0.55862063, b: 0, a: 0.709}
+      second: {r: 0.5441177, g: 0.88681537, b: 1, a: 1}
+    - first:
+        name: _EdgeColor
+      second: {r: 0.6985294, g: 0.6985294, b: 0.6985294, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
+        name: _OutlineColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
         name: _TintColor
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 0.2}
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}

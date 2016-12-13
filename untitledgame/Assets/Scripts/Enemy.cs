@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (lastattack > 0)
-        { lastattack--; }
+		{ lastattack -= Time.deltaTime; }
 
         curDistance = Vector3.Distance(target.transform.position, transform.position);
         canAttack = !(lastattack > 0);
@@ -43,10 +43,10 @@ public class Enemy : MonoBehaviour {
             AIMove();
         }
 
-        if (curDistance <= attackdistance)
+		if (curDistance <= attackdistance && canAttack)
         {
-            canAttack = true;
             AIAttack();
+			canAttack = false;
         }
     }
 
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour {
 
     void AIAttack()
     {
-        lastattack = attackSpeed;
+		lastattack = attackSpeed;
         print("attacked");
         target.gameObject.SendMessage("ApplyDamage", attackDamage, SendMessageOptions.DontRequireReceiver);
     }
