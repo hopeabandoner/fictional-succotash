@@ -480,7 +480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bdc4a296738d64b87c567c368b1b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 50
+  damage: 50
   target: {fileID: 0}
 --- !u!198 &198000010244353266
 ParticleSystem:

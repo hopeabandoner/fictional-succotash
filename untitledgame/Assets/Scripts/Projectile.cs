@@ -14,15 +14,17 @@ public class Projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        float realtime = speed * Time.deltaTime;
         if (!target)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * realtime * Time.deltaTime);
         }
 
         
         if(target)
         {
-            transform.position = Vector3.Slerp(transform.position, target.transform.position, speed * Time.deltaTime);
+            transform.position = Vector3.Lerp (transform.position, target.transform.position, realtime * Time.deltaTime);
 
         }
 
